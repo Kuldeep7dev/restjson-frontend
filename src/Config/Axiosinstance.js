@@ -1,7 +1,15 @@
 import axios from "axios";
 
+
+// const URL = "http://localhost:4050"
+
+const URL = "https://restjson.onrender.com"
+
+
+
+
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL,
+    baseURL: URL,
     withCredentials: true,
     headers: {
         "Content-Type": "application/json"
@@ -32,4 +40,4 @@ axiosInstance.interceptors.response.use(
     }
 );
 
-export default axiosInstance;
+export default axiosInstance;
