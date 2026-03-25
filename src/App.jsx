@@ -11,7 +11,6 @@ import PublicLayout from "./Layout/PublicLayout";
 import UnPublic from "./Layout/UnPublic";
 
 import Dashboard from "./Component/Dashboard/Dashboard";
-import AdminPanel from "./Pages/DashboardPages/AdminPanel";
 import Reports from "./Pages/DashboardPages/Reports";
 import SignUp from "./Pages/DashboardPages/SignUp";
 import Login from "./Component/Dashboard/Login";

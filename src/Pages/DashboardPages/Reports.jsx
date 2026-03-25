@@ -41,7 +41,7 @@ const Reports = () => {
     }, [])
 
     return (
-        <div className="select-text p-4">
+        <div className="select-text p-4 ml-0 sm:ml-60">
             {/* Loading State */}
             {loading && (
                 <p className="text-center text-gray-500">
@@ -51,7 +51,7 @@ const Reports = () => {
 
             {/* Empty State */}
             {!loading && contact.length === 0 && (
-                <div className="text-center text-xl flex justify-center items-center text-gray-400 " style={{ height: '91vh' }}>
+                <div className=" flex px-50 items-center text-gray-400 select-none" style={{ height: '91vh' }}>
                     <div className='flex items-center gap-2'>
                         No contact reports available <MessageCircleWarning size={20} />
                     </div>
@@ -60,7 +60,7 @@ const Reports = () => {
 
             {/* Data State */}
             {!loading && contact.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {contact.map((data, idx) => {
                         const firstLetter = data.name?.charAt(0).toUpperCase()
                         const bgColor = getColorFromName(data.name)
@@ -76,13 +76,15 @@ const Reports = () => {
                                     {firstLetter}
                                 </div>
 
-                                <div className="space-y-1">
+                                <div className="space-y-1 w-full">
                                     <p className="font-semibold text-gray-800">
                                         {data.name}
                                     </p>
-                                    <p className="text-sm text-gray-600">
+
+                                    <p className="text-sm text-gray-600 break-all">
                                         {data.email}
                                     </p>
+
                                     <p className="text-sm text-gray-700 break-words">
                                         {data.message}
                                     </p>

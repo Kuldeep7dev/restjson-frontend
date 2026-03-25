@@ -162,7 +162,7 @@ const SignUp = () => {
             bg-purple-600 text-white p-2 rounded-lg
             transition-all duration-200
             hover:bg-purple-700
-            active:scale-95
+            active:scale-95 cursor-pointer
           "
                 >
                     Submit

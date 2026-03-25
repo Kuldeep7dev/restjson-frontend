@@ -75,7 +75,7 @@ const Login = () => {
 
                 <button
                     type="submit"
-                    className="bg-purple-600 text-white p-2 rounded-lg"
+                    className="bg-purple-600 text-white p-2 rounded-lg cursor-pointer"
                 >
                     Submit
                 </button>
