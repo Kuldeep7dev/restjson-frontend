@@ -1,7 +1,14 @@
 import { Braces, LayoutDashboard, LogIn, MessageCircleWarning } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
+    };
+
     const dashlink = [
         {
             name: "Dashboard",
@@ -56,14 +63,14 @@ const Sidebar = () => {
 
             {/* ✅ push to bottom properly */}
             <div className="mt-auto">
-                <Link
-                    to="/login"
+                <button
+                    onClick={handleLogout}
                     className="text-white hover:bg-purple-700 p-2 flex justify-center w-full rounded-lg"
                 >
                     <div className="flex items-center gap-2">
                         Log-out <LogIn size={20} />
                     </div>
-                </Link>
+                </button>
             </div>
         </aside>
     );

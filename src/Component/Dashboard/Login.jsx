@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast'
 import axiosInstance from '../../Config/Axiosinstance'
 import { useNavigate } from 'react-router'
@@ -9,6 +9,11 @@ const Login = () => {
         password: 'Kushal@06176'
     })
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) navigate('/dashboard');
+    }, [navigate]);
 
     const errorToast = (msg) => {
         toast.error(msg, {
