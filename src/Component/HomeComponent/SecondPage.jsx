@@ -14,32 +14,32 @@ const SecondPage = () => {
   const apiList = [
     {
       title: "Visitor",
-      endpoint: "http://localhost:4050/visiter",
+      endpoint: "https://restjson.onrender.com/visiter",
       icon: Footprints,
     },
     {
       title: "Products",
-      endpoint: "http://localhost:4050/product",
+      endpoint: "https://restjson.onrender.com/product",
       icon: ShoppingBasket,
     },
     {
       title: "Users",
-      endpoint: "http://localhost:4050/users",
+      endpoint: "https://restjson.onrender.com/users",
       icon: User,
     },
     {
       title: "Todos",
-      endpoint: "http://localhost:4050/todos",
+      endpoint: "https://restjson.onrender.com/todos",
       icon: ClipboardList,
     },
     {
       title: "Movie",
-      endpoint: "http://localhost:4050/movie",
+      endpoint: "https://restjson.onrender.com/movie",
       icon: Videotape,
     },
     {
       title: 'Featured Products',
-      endpoint: 'http://localhost:4050/product/featured',
+      endpoint: 'https://restjson.onrender.com/featured',
       icon: Star
     }
   ];
