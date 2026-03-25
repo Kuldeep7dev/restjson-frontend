@@ -3,10 +3,12 @@ import axios from "axios";
 
 // const URL = "http://localhost:4050"
 
-const URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4050";
+// const URL = "http://localhost:4050";
 
 
-// hi
+const URL = "https://restjson.onrender.com"
+
+
 
 const axiosInstance = axios.create({
     baseURL: URL,
