@@ -28,7 +28,9 @@ const Reports = () => {
     const fetchContact = async () => {
         try {
             const res = await axiosInstance.get('/contact')
-            setContact(res.data.contact)
+            setContact(res.data)
+            console.log(res.data.contact)
+            const data = res?.data?.contact ?? []
         } catch (error) {
             console.log(error)
         } finally {
@@ -51,11 +53,11 @@ const Reports = () => {
 
             {/* Empty State */}
             {!loading && contact.length === 0 && (
-                <p className="text-center text-xl flex justify-center items-center text-gray-400 " style={{ height: '91vh' }}>
+                <div className="text-center text-xl flex justify-center items-center text-gray-400 " style={{ height: '91vh' }}>
                     <div className='flex items-center gap-2'>
-                        No contact reports available <MessageCircleWarning size={20}/>
+                        No contact reports available <MessageCircleWarning size={20} />
                     </div>
-                </p>
+                </div>
             )}
 
             {/* Data State */}

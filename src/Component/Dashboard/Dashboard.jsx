@@ -3,22 +3,20 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../Config/Axiosinstance";
 
 const Dashboard = () => {
-    const [contactCount, setContactCount] = useState()
-
+    const [contactCount, setContactCount] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const getCount = async () => {
         try {
-            const res = await axiosInstance.get('/contact/get-count')
-
-            setContactCount(res.data.contact)
-
-
-
+            const res = await axiosInstance.get('/contact/get-count');
+            const count = res?.data?.contact ?? 0;
+            setContactCount(count);
         } catch (error) {
-            console.log(error);
-
+            console.error(error?.response?.data || error.message);
+        } finally {
+            setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
         getCount()
@@ -43,7 +41,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className="mt-4">
-                    <p className="text-3xl font-bold text-gray-900">{contactCount}</p>
+                    <p className="text-3xl font-bold text-gray-900">
+                        {loading ? "..." : contactCount}
+                    </p>
                     <p className="text-sm text-gray-500">Reports</p>
                 </div>
             </div>
