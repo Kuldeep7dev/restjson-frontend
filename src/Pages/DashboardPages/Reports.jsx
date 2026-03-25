@@ -29,7 +29,7 @@ const Reports = () => {
     const fetchContact = async () => {
         try {
             const res = await axiosInstance.get('/contact')
-            console.log(res.data)
+
             // safer parsing
             if (res?.data?.contact) {
                 setContact(res.data.contact)
@@ -50,7 +50,7 @@ const Reports = () => {
 
     return (
         <div className="select-text p-4 ml-0 sm:ml-60 min-h-screen">
-
+            
             {/* Loading */}
             {loading && (
                 <div className="flex justify-center items-center h-[80vh]">
