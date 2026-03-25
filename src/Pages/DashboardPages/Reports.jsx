@@ -28,9 +28,7 @@ const Reports = () => {
     const fetchContact = async () => {
         try {
             const res = await axiosInstance.get('/contact')
-            setContact(res.data)
-            console.log(res.data.contact)
-            const data = res?.data?.contact ?? []
+            setContact(res.data.contact)
         } catch (error) {
             console.log(error)
         } finally {

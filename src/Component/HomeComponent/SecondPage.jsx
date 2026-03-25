@@ -39,7 +39,7 @@ const SecondPage = () => {
     },
     {
       title: 'Featured Products',
-      endpoint: 'https://restjson.onrender.com/featured',
+      endpoint: 'https://restjson.onrender.com/product/featured',
       icon: Star
     }
   ];
@@ -47,7 +47,7 @@ const SecondPage = () => {
   return (
     <section className="min-h-screen flex justify-center items-center px-4 sm:px-6 py-10">
       <div className="w-full max-w-6xl">
-        
+
         <h1 className="text-3xl font-semibold mb-8 text-center sm:text-left">
           Top 6 APIs:
         </h1>
@@ -67,7 +67,7 @@ const SecondPage = () => {
                   shadow-lg bg-white overflow-hidden"
               >
                 <div className="flex items-center justify-between">
-                  
+
                   {/* Left */}
                   <div className="flex items-center gap-4">
                     <div className="p-3 rounded-md bg-gray-100 group-hover:bg-purple-600 transition">

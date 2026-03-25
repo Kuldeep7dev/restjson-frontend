@@ -59,7 +59,7 @@ const Docs = () => {
           {/* Base URL (small but professional add) */}
           <div className="rounded-sm p-3 bg-[#1e1e1e] overflow-x-auto">
             <SyntaxHighlighter language="text" style={vscDarkPlus}>
-              {`Base URL: http://localhost:4050`}
+              {`Base URL: https://restjson.onrender.com`}
             </SyntaxHighlighter>
           </div>
 
@@ -92,7 +92,7 @@ const Docs = () => {
             {activeClient === "fetch" && (
               <>
                 <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-                  {`const res = await fetch('http://localhost:4050/users')
+                  {`const res = await fetch('https://restjson.onrender.com/users')
 const data = await res.json()
 console.log(data)`}
                 </SyntaxHighlighter>
@@ -100,7 +100,7 @@ console.log(data)`}
                 <p className="text-white text-xs sm:text-sm text-center my-2">OR</p>
 
                 <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-                  {`fetch('http://localhost:4050/users')
+                  {`fetch('https://restjson.onrender.com/users')
   .then(res => res.json())
   .then(console.log)`}
                 </SyntaxHighlighter>
@@ -110,14 +110,14 @@ console.log(data)`}
             {activeClient === "axiosaxiosInstance" && (
               <>
                 <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-                  {`const res = await axiosaxiosInstance.get('http://localhost:4050/users')
+                  {`const res = await axiosaxiosInstance.get('https://restjson.onrender.com/users')
 console.log(res.data)`}
                 </SyntaxHighlighter>
 
                 <p className="text-white text-xs sm:text-sm text-center my-2">OR</p>
 
                 <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-                  {`axiosaxiosInstance.get('http://localhost:4050/users')
+                  {`axiosaxiosInstance.get('https://restjson.onrender.com/users')
   .then(res => console.log(res.data))
   .catch(console.error)`}
                 </SyntaxHighlighter>
@@ -132,7 +132,7 @@ console.log(res.data)`}
 
           <div className="rounded-sm p-3 bg-[#1e1e1e] overflow-x-auto">
             <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-              {`const res = await fetch('http://localhost:4050/users')
+              {`const res = await fetch('https://restjson.onrender.com/users')
 const data = await res.json()
 console.log(data)`}
             </SyntaxHighlighter>
