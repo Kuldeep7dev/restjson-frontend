@@ -3,7 +3,7 @@ import axios from "axios";
 
 // const URL = "http://localhost:4050"
 
-const URL = "https://restjson.onrender.com"
+const URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4050";
 
 
 // hi
