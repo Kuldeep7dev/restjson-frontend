@@ -39,13 +39,14 @@ const FirstPage = () => {
                 </div>
 
                 <div className='flex flex-col sm:flex-row justify-center mt-8 sm:mt-10 gap-4 sm:gap-6'>
-                    <Link
-                        to='/github'
+                    <a
+                        href='https://github.com/Kuldeep7dev'
+                        target="_blank"
                         className='text-white cursor-pointer p-3 sm:px-6 rounded-lg text-center bg-purple-600 flex items-center justify-center gap-1.5 shadow-lg shadow-purple-500 hover:shadow-neutral-50 hover:duration-600 min-w-[180px]'
                     >
                         <RiGithubFill />
                         View Github
-                    </Link>
+                    </a>
 
                     <Link
                         to='/docs'
