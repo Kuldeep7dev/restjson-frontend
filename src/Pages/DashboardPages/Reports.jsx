@@ -24,13 +24,21 @@ const getColorFromName = (name = '') => {
 const Reports = () => {
     const [contact, setContact] = useState([])
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     const fetchContact = async () => {
         try {
             const res = await axiosInstance.get('/contact')
-            setContact(res.data.contact)
-        } catch (error) {
-            console.log(error)
+            console.log(res.data)
+            // safer parsing
+            if (res?.data?.contact) {
+                setContact(res.data.contact)
+            } else {
+                setContact([])
+            }
+        } catch (err) {
+            console.error(err)
+            setError('Failed to load contacts')
         } finally {
             setLoading(false)
         }
@@ -41,52 +49,64 @@ const Reports = () => {
     }, [])
 
     return (
-        <div className="select-text p-4 ml-0 sm:ml-60">
-            {/* Loading State */}
+        <div className="select-text p-4 ml-0 sm:ml-60 min-h-screen">
+
+            {/* Loading */}
             {loading && (
-                <p className="text-center text-gray-500">
-                    Loading contacts...
-                </p>
+                <div className="flex justify-center items-center h-[80vh]">
+                    <p className="text-gray-500 animate-pulse">
+                        Loading contacts...
+                    </p>
+                </div>
             )}
 
-            {/* Empty State */}
-            {!loading && contact.length === 0 && (
-                <div className=" flex px-50 items-center text-gray-400 select-none" style={{ height: '91vh' }}>
-                    <div className='flex items-center gap-2'>
-                        No contact reports available <MessageCircleWarning size={20} />
+            {/* Error */}
+            {!loading && error && (
+                <div className="flex justify-center items-center h-[80vh] text-red-500">
+                    {error}
+                </div>
+            )}
+
+            {/* Empty */}
+            {!loading && !error && contact.length === 0 && (
+                <div className="flex justify-center items-center h-[80vh] text-gray-400">
+                    <div className="flex items-center gap-2">
+                        No contact reports available
+                        <MessageCircleWarning size={20} />
                     </div>
                 </div>
             )}
 
-            {/* Data State */}
-            {!loading && contact.length > 0 && (
+            {/* Data */}
+            {!loading && !error && contact.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {contact.map((data, idx) => {
-                        const firstLetter = data.name?.charAt(0).toUpperCase()
-                        const bgColor = getColorFromName(data.name)
+                    {contact.map((data) => {
+                        const name = data?.name || 'Unknown'
+                        const firstLetter = name.charAt(0).toUpperCase()
+                        const bgColor = getColorFromName(name)
 
                         return (
                             <div
-                                key={idx}
+                                key={data._id || data.id} // ✅ FIXED
                                 className="flex items-start gap-4 p-4 border rounded-xl bg-white shadow-sm hover:shadow-md transition"
                             >
                                 <div
-                                    className={`w-12 h-12 shrink-0 flex items-center justify-center rounded-full text-white font-bold text-lg ${bgColor}`}
+                                    className={`w-12 h-12 flex items-center justify-center rounded-full text-white font-bold text-lg ${bgColor}`}
                                 >
                                     {firstLetter}
                                 </div>
 
                                 <div className="space-y-1 w-full">
                                     <p className="font-semibold text-gray-800">
-                                        {data.name}
+                                        {name}
                                     </p>
 
                                     <p className="text-sm text-gray-600 break-all">
-                                        {data.email}
+                                        {data?.email || 'No email'}
                                     </p>
 
                                     <p className="text-sm text-gray-700 break-words">
-                                        {data.message}
+                                        {data?.message || 'No message'}
                                     </p>
                                 </div>
                             </div>
