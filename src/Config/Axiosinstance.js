@@ -1,8 +1,5 @@
 import axios from "axios";
 
-
-// const URL = "http://localhost:4050"
-
 // const URL = "http://localhost:4050";
 
 
