@@ -197,7 +197,7 @@ console.log(data)`}
 
           <div className="rounded-sm p-3 bg-[#1e1e1e] overflow-x-auto">
             <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-              {`const res = await axiosaxiosInstance.get('http://localhost:4050/users/1')
+              {`const res = await axiosaxiosInstance.get('https://restjson-server.vercel.app/users/1')
 console.log(res.data)`}
             </SyntaxHighlighter>
           </div>
