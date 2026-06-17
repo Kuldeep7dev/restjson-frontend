@@ -14,32 +14,32 @@ const SecondPage = () => {
   const apiList = [
     {
       title: "Visitor",
-      endpoint: "https://restjson.onrender.com/visiter",
+      endpoint: "https://restjson-server.vercel.app/visiter",
       icon: Footprints,
     },
     {
       title: "Products",
-      endpoint: "https://restjson.onrender.com/product",
+      endpoint: "https://restjson-server.vercel.app/product",
       icon: ShoppingBasket,
     },
     {
       title: "Users",
-      endpoint: "https://restjson.onrender.com/users",
+      endpoint: "https://restjson-server.vercel.app/users",
       icon: User,
     },
     {
       title: "Todos",
-      endpoint: "https://restjson.onrender.com/todos",
+      endpoint: "https://restjson-server.vercel.app/todos",
       icon: ClipboardList,
     },
     {
       title: "Movie",
-      endpoint: "https://restjson.onrender.com/movie",
+      endpoint: "https://restjson-server.vercel.app/movie",
       icon: Videotape,
     },
     {
       title: 'Featured Products',
-      endpoint: 'https://restjson.onrender.com/product/featured',
+      endpoint: 'https://restjson-server.vercel.app/product/featured',
       icon: Star
     }
   ];
